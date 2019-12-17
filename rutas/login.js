@@ -28,7 +28,7 @@ router.post("/", (req, res) => {
                 delete user.pass;
                 let token = jwt.sign(user, secret);
 
-                res.json({token: token});
+                res.json({token: token.toString()});
                 return;
             } catch (error) {
                 res.json({error: error});

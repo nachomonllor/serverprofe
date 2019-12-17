@@ -74,9 +74,11 @@ router.delete("/:id", (req, res) => {
     }
 
     const clientes = req.db.collection("clientes");
+      
+    
     clientes.remove({
         ip: req.ip,
-        id: +id
+        id: id
     }, (err, data) => {
         if ( err ) {
             res.json({rta: err});

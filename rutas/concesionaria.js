@@ -1,5 +1,5 @@
 const router = require("express").Router({mergeParams: true});
-const auth = require("../modulos/auth");
+//const auth = require("../modulos/auth");
 
 router.get("/", [ (req, res) => {
     let ip = req.ip;
@@ -17,7 +17,7 @@ router.get("/", [ (req, res) => {
 }]);
 
 router.post("/", (req, res) => {
-    let o = req.body.cliente;
+    let o = req.body.concesionaria;
 
     if ( !o ) {
         res.json({error: "No encontrado objeto concesionaria"})
@@ -26,9 +26,9 @@ router.post("/", (req, res) => {
 
     o.ip = req.ip;
 
-    const clientes = req.db.collection("concesionaria");
+    const concesionarias = req.db.collection("concesionaria");
 
-    clientes.insertOne(o, (err, data) => {
+    concesionarias.insertOne(o, (err, data) => {
         if ( err ) {
             res.json({rta: err});
             return;
@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
 
 
 router.put("/:id", (req, res) => {
-    let o = req.body.cliente;
+    let o = req.body.concesionaria;
 
     let id = req.params.id;
 
@@ -49,9 +49,9 @@ router.put("/:id", (req, res) => {
         return;
     }
 
-    const clientes = req.db.collection("concesionaria");
+    const concesionarias = req.db.collection("concesionaria");
 
-    clientes.update({
+    concesionarias.update({
         ip: req.ip,
         id: +id
     }, {$set: {...o}}, (err, data) => {

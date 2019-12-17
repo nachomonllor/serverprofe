@@ -13,7 +13,8 @@ const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27017';
 const dbName = 'parcial1';
 
-const PORT = 3003;
+//const PORT = 3003;
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
@@ -49,8 +50,14 @@ client.connect(function(err) {
 
     res.send("Que haces aca? Estas perdido!");
   });
+  
+  let port = process.env.PORT;
+  if (port == null || port == "") {
+    port = 8000;
+  }
+  //app.listen(port);
 
-  app.listen(PORT, () => {
-    console.log("Servidor iniciado en puerto", PORT);
+  app.listen(port, () => {
+    console.log("Servidor iniciado en puerto", port);
   });
 });

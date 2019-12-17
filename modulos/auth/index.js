@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 let secret = "clave-hiper-mega-tera-peta-secreta";
 
 router.use((req, res, next) => {
-    console.log("pase por header");
+   // console.log("pase por header");
     let token = req.headers.token;
     if ( !token ) {
         res.json({error: "Acceso prohibido"});
