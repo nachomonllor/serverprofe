@@ -9,6 +9,7 @@ var cors = require('cors');
 const rutas = require("./rutas");
 const assert = require('assert');
 const MongoClient = require('mongodb').MongoClient;
+var path = require("path");
 // Mongo Config
 //const url = 'mongodb://localhost:27017';
 const url = 'mongodb+srv://nachomonllor:b2ywrySKZVoc9qoL@cluster0-qtf8x.mongodb.net/test?retryWrites=true&w=majority'
@@ -57,11 +58,25 @@ client.connect(function(err) {
 
   app.use(rutas);
 
-  app.use((req, res) => {
+  app.use(express.static(__dirname + '/dist'));
 
-    res.send("Que haces aca? Estas perdido!");
+  app.use((req, res) => {
+    res.sendFile(path.join(__dirname + '/dist/index.html'));
+    //res.send("Que haces aca? Estas perdido!");
   });
+
+  // Send all requests to index.html
+/* app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/index.html'));
+}); */
   
+// Serve static files....
+  //app.use(express.static(__dirname + '/dist'));
+
+/*   app.get('/*', function(req, res) {
+    
+  }); */
+
   let port = process.env.PORT;
   if (port == null || port == "") {
     port = 3003;
