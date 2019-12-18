@@ -618,10 +618,13 @@
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
             /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+            /* harmony import */ var _modelos_variables__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modelos/variables */ "./src/app/modelos/variables.ts");
             var AuthservicioService = /** @class */ (function () {
                 function AuthservicioService(http) {
                     this.http = http;
-                    this.urllogin = "http://localhost:3003/login";
+                    this.variableUrl = new _modelos_variables__WEBPACK_IMPORTED_MODULE_4__["variables"]();
+                    this.urllogin = this.variableUrl.urlBase + "login";
+                    ////private urllogin = "http://localhost:3003/login";
                     this.isLoggedIn = false;
                 }
                 AuthservicioService.prototype.postlogin = function (_cli) {
