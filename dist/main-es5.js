@@ -429,7 +429,7 @@
             var routes = [
                 { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
                 { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
-                { path: 'formulario', component: _formulario_formulario_component__WEBPACK_IMPORTED_MODULE_4__["FormularioComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
+                { path: 'formulario', component: _formulario_formulario_component__WEBPACK_IMPORTED_MODULE_4__["FormularioComponent"] },
                 { path: 'cargaVehiculo', component: _formcarga_vehiculo_formcarga_vehiculo_component__WEBPACK_IMPORTED_MODULE_6__["FormcargaVehiculoComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
                 { path: 'mostrarVehiculos', component: _form_mostrar_form_mostrar_component__WEBPACK_IMPORTED_MODULE_7__["FormMostrarComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
                 { path: 'filtrarVehiculos', component: _formfiltrar_formfiltrar_component__WEBPACK_IMPORTED_MODULE_8__["FormfiltrarComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] }
